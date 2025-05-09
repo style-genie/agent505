@@ -22,24 +22,26 @@
         <th style="padding: 10px; background-color: #f5f5f5; border: 1px solid #ddd;">Description</th>
     </tr>
     <tr>
-        <td style="padding: 10px; border: 1px solid #ddd;">Agent505 - Agent Orchestrator</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">Agent505</td>
         <td style="padding: 10px; border: 1px solid #ddd;">
             <ul style="margin: 0; padding-left: 20px;">
-                <li>Framework for managing agents, crews and supervisors</li>
-                <li>Simple integration with FastAPI</li>
-                <li>Share context between agents</li>
-                <li>Supervise agents</li>
-                <li>Build autonomous agents with feedback loops</li>
+The Agent505 class initializes all components for:<ul>
+                <li>managing agents, crews and supervisors</li>
+                <li>simple integration with FastAPI</li>
+                <li>sharing context between agents</li>
+                <li>supervising agents</li>
+                <li>building autonomous agents with feedback loops</li>
+                </ul>
             </ul>
         </td>
     </tr>
     <tr>
         <td style="padding: 10px; border: 1px solid #ddd;">Session Manager</td>
-        <td style="padding: 10px; border: 1px solid #ddd;">Manages agent sessions for faster interaction</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">initializes Message Manager, Context Registry and additional components needed.</td>
     </tr>
     <tr>
         <td style="padding: 10px; border: 1px solid #ddd;">Message Manager</td>
-        <td style="padding: 10px; border: 1px solid #ddd;">Manages messages between agents, tools and supervisors and websockets asynchronously</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">Manages messages between agents, tools and supervisors and websocket clients asynchronously</td>
     </tr>
     <tr>
         <td style="padding: 10px; border: 1px solid #ddd;">Context Registry</td>
@@ -57,10 +59,10 @@
             Provides a simple way to use LiteLLM models and providers
             <ul style="margin: 10px 0 0 20px; padding-left: 0;">
                 <li>Gemini</li>
-                <li>open_router</li>
-                <li>ollama_local</li>
+                <li>openRouter</li>
+                <li>ollama api (local)</li>
                 <li>openwebui</li>
-                <li>HuggingFace</li>
+                <li>OpenAI(?)</li>
             </ul>
         </td>
     </tr>
@@ -84,13 +86,13 @@ export OLLAMA_API_KEY=...
 export OPENWEBUI_API_KEY=...
 export GEMINI_API_KEY=...
 ```
-### docker
+### docker compose
 - you might need to change the image in the compose file to python:3.11.3-alpine3.17
 ```bash
 docker compose up 
 ```
 
-### without docker
+### run without docker
 -  **Create a virtual environment (optional but recommended):**
 
     ```bash
@@ -105,27 +107,22 @@ docker compose up
     pip install -r requirements.txt
     ```
 
-## Configuration
-
+### Configuration
 The project uses environment variables for configuration. Create a `.env` file based on the `.env.sample` file and set the appropriate values.
 
-## Usage
-### Local
-```bash
-cd example
-python e1.py
-```
-### Docker
-```bash
-docker compose up
-```
-
 ## Examples
-
 The `example/` directory contains example scripts that demonstrate how to use the project.
 
 *   `example/advisor1.py`: This script is a FastAPI application that provides a style advisor. It initializes a session, interacts with a ModelContextProtocol, and uses a websocket for communication. It also defines a greeting message and sets up CORS middleware.
 *   `example/tools.py`: This script defines several tools, including `internet_search_tool`, `wiki`, `fetch_elements_from_vector_db`, `get_json_element_by_id`, `read_user_data`, `write_user_data`, and `init_user_database`. These tools are used to search the internet, retrieve Wikipedia pages, fetch elements from a vector database, get JSON elements by ID, and manage user data in a database.
+
+- if you run it without docker:
+
+     ```bash
+     cd example
+     python e1.py
+     ```
+
 
 ## Dependencies (including example)
 
