@@ -4,14 +4,14 @@
 </head>
 <body>
      <div align="right">
-      <img src="https://github.com/style-genie/agent505/blob/main/docs/agent505_logo2.png?raw=true" alt="Agent505 Logo" style="width: 110px; align="right" height: auto;">
+      <img src="https://github.com/style-genie/agent505/blob/main/docs/agent505_logo2.png?raw=true" alt="Agent505 Logo" style="width: 70px; align="right" height: auto;">
     </div>
-<div style="x;">
+
 <div align="center">
     <h1 style="margin: 0; text-align: center, font-size: 20px;">agent505</h1>
 </div>
    
-</div>
+
 
 <p>Agent505 is a framework designed to simplify the management and orchestration of AI agents, providing tools for building autonomous systems with feedback loops. It integrates seamlessly with FastAPI for easy deployment and offers features for session management, message handling, context sharing, and supervision of agents.</p>
 
