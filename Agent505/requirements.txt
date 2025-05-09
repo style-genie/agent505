@@ -1,0 +1,17 @@
+
+setuptools>=61.0
+python-dotenv==1.1.0
+fastapi<0.114.0,>=0.113.0
+pydantic<3.0.0,>=2.7.0
+uvicorn==0.34.0
+python-multipart==0.0.20
+openai==1.76.0
+litellm==1.67.1
+fastapi-sessions==0.3.2
+crewai==0.118.0
+pathlib
+mysql-connector-python==9.3.0
+langchain==0.3.25 
+langchain-community==0.3.23 
+duckduckgo-search==8.0.1 
+wikipedia==1.4.0 
