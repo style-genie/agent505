@@ -1,13 +1,37 @@
+import base64
+import io
 import logging
-logger = logging.getLogger(__name__)
-import litellm
-import json
-import subprocess
 import os
+import dotenv
+import json
 import sys
-from pathlib import Path
-from dotenv import dotenv_values
+# from src.ai.img_to_img import ImgToImg
+from Agent505.src.session import Session
+from fastapi.middleware import cors
+from fastapi_sessions.frontends.implementations import SessionCookie, CookieParameters
+from fastapi_sessions.backends.implementations import InMemoryBackend
+from fastapi_sessions.session_verifier import SessionVerifier
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Query, middleware, Response, HTTPException
+from fastapi.responses import (
+    FileResponse,
+    HTMLResponse,
+    JSONResponse,
+    ORJSONResponse,
+    PlainTextResponse,
+    RedirectResponse,
+    Response,
+    StreamingResponse,
+    UJSONResponse,
+)
+from typing import Dict, List, Optional
 import asyncio
+from dataclasses import dataclass
+from pydantic import BaseModel
+import uvicorn
+from uuid import uuid4
+from uuid import UUID
+
+
 instruction_message ={"role": "system", "content": "you are a friendly assistant"}
 instruction_message2 ={"role": "system", "content": """
                     You are a fashion instructor. 
@@ -45,6 +69,102 @@ instruction_message2 ={"role": "system", "content": """
                         }
                     """
 }
+
+# --------> Load environment variables <--------
+dotenv.load_dotenv("./.env.local")
+
+# -------> Create FastAPI app <------
+app = FastAPI(
+    title="StyleGenie API",
+    description="AI-Powered Style Assistant API",
+    version="0.1.0",
+)
+# Get allowed origins from environment variable or use default
+allowed_origins = os.environ.get("CORS_ORIGINS", "*").split(",")
+# Add CORS middleware
+app.add_middleware(
+    cors.CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+class SessionData(BaseModel):
+    username: str
+cookie_params = CookieParameters()
+# Uses UUID
+cookie = SessionCookie(
+    cookie_name="cookie",
+    identifier="general_verifier",
+    auto_error=True,
+    secret_key="DONOTUSE",
+    cookie_params=cookie_params,
+)
+backend = InMemoryBackend[UUID, SessionData]()
+
+
+
+
+
+# ------> CREATE_AGENT_SESSION <----------
+@app.post("/create_session/{name}")
+async def create_session(name: str, response: Response):
+    session = uuid4()
+    data = SessionData(username=name)
+    await backend.create(session, data)
+    cookie.attach_to_response(response, session)
+    return f"created session for {name}"
+
+# ------> Existing_SESSION <----------
+@app.websocket("/ws/{session_id}")
+async def websocket_endpoint(websocket: WebSocket, session_id: str):
+    try:
+        # connect
+        Sessions.append(session)
+    except WebSocketDisconnect:
+        manager.disconnect(session_id)
+    except Exception as e:
+        logger.error(f"Error creating agent session: {e}")
+        manager.disconnect(session_id)
+
+
+def start():
+    uvicorn.run(
+        # WICHTIG: fuer reload=True ist es besser, den Import-String anzugeben.
+        # Uvicorn muss wissen, wie es deine App neu laden kann.
+        "main:app",
+        host="127.0.0.1",
+        port=1500,
+        reload=True  # Aktiviert Auto-Reload bei Code-Änderungen (gut für Entwicklung)
+        # log_level="info" # Optional: Setze das Logging-Level
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Advisor1():
     async def greeting_msg(self):
