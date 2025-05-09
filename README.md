@@ -3,32 +3,70 @@
 <head>
 </head>
 <body>
-     <div align="right">
-      <img src="https://github.com/style-genie/agent505/blob/main/docs/agent505_logo2.png?raw=true" alt="Agent505 Logo" style="width: 70px; align="right" height: auto;">
-    </div>
-
-<div align="center">
-    <h1 style="margin: 0; text-align: center, font-size: 20px;">agent505</h1>
-</div>
-   
-
-
-<p>Agent505 is a framework designed to simplify the management and orchestration of AI agents, providing tools for building autonomous systems with feedback loops. It integrates seamlessly with FastAPI for easy deployment and offers features for session management, message handling, context sharing, and supervision of agents.</p>
-
-
-
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+     <tr>
+     <td>
+          <div  align="center">
+          <img src="https://github.com/style-genie/agent505/blob/main/docs/agent505_logo2.png?raw=true" align="center" alt="Agent505 Logo" style="width: 70px; height: auto;">
+          </div>
+     </td>
+     <td> <img width=800/>
+          <p>Agent505 is a framework designed to simplify the management and orchestration of AI agents, providing tools for building autonomous systems with feedback loops. It integrates seamlessly with FastAPI for easy deployment and offers features for session management, message handling, context sharing, and supervision of agents.</p>
+     </td>
+</tr>
+     <tr>
+<h2>Agent505</h2>
+</tr>
+     <tr>
+        <th style="padding: 10px; background-color: #f5f5f5; border: 1px solid #ddd;">Features</th>
+        <th style="padding: 10px; background-color: #f5f5f5; border: 1px solid #ddd;">Description</th>
+    </tr>
+    <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">Agent505 - Agent Orchestrator</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>Framework for managing agents, crews and supervisors</li>
+                <li>Simple integration with FastAPI</li>
+                <li>Share context between agents</li>
+                <li>Supervise agents</li>
+                <li>Build autonomous agents with feedback loops</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">Session Manager</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">Manages agent sessions for faster interaction</td>
+    </tr>
+    <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">Message Manager</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">Manages messages between agents, tools and supervisors and websockets asynchronously</td>
+    </tr>
+    <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">Context Registry</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>Manages context between agents</li>
+                <li>Allows for context to be shared between agents</li>
+                <li>Provides a simple way to supervise agents by calling the responsible supervisor, or custom event-based user-callbacks</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">LiteLLM Implementation</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">
+            Provides a simple way to use LiteLLM models and providers
+            <ul style="margin: 10px 0 0 20px; padding-left: 0;">
+                <li>Gemini</li>
+                <li>open_router</li>
+                <li>ollama_local</li>
+                <li>openwebui</li>
+                <li>HuggingFace</li>
+            </ul>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
-
-## Features
-
-| Features| Description |                                                                                                                                                                      
-| --- | --- |
-| Agent505 - Agent Orchestrator | <li>framework for managing agents, crews and supervisors</li> <li>simple integration with fastAPI</li><li>share context between agents</li><li>supervise agents</li> <li>build autonomous agents with feeback loops</li> |
-| Session Manager | manages agent sessions for faster interaction |
-| Message Manager |  manages messages between agents, tools and supervisors and websockets asynchronously |
-| Context Registry |  <li> manages context between agents. </li> <li> allows for  context to be shared between agents. </li> <li> provides a simple way to supervise agents by calling the the responsible supervisor, or custom eventbased user-callbacks </li> |   
-| LiteLLM Implementation | provides a simple way to use LiteLLM models and providers <br/> Providers: <ul> <li> Gemini </li> <li> open_router </li> <li> ollama_local </li> <li> openwebui </li> <li> HuggingFace </li> </ul> | 
 
 
 ## Setup and Installation
