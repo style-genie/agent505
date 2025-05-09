@@ -47,7 +47,6 @@ The Agent505 class initializes all components for:<ul>
         <td style="padding: 10px; border: 1px solid #ddd;">Context Registry</td>
         <td style="padding: 10px; border: 1px solid #ddd;">
             <ul style="margin: 0; padding-left: 20px;">
-                <li>Manages context between agents</li>
                 <li>Allows for context to be shared between agents</li>
                 <li>Provides a simple way to supervise agents by calling the responsible supervisor, or custom event-based user-callbacks</li>
             </ul>
