@@ -11,7 +11,7 @@
           </div>
      </td>
      <td> <img width=800/>
-          <p>Agent505 is a framework designed to simplify the management and orchestration of AI agents, providing tools for building autonomous systems with feedback loops. It integrates seamlessly with FastAPI for easy deployment and offers features for session management, message handling, context sharing, and supervision of agents.</p>
+          <p>Agent505 is a framework designed to simplify the management and orchestration of AI agents, providing tools for building autonomous systems with feedback loops. It integrates seamlessly with FastAPI for easy deployment and offers features for session management, message handling, context sharing, and supervision of agents.</p><br/>
      </td>
 </tr>
      <tr>
