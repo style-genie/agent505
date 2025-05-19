@@ -78,6 +78,7 @@ class ConnectionManager:
             return None
 
 
+
 async def stream_task_progress(manager: ConnectionManager, task_id: str):
     while True:
         task = manager.tasks.get(task_id)

@@ -70,6 +70,8 @@ instruction_message2 ={"role": "system", "content": """
                     """
 }
 
+OPENROUTER_API_KEY=os.environ.get("OPENROUTER_API_KEY","")
+OPENROUTER_API_BASE=os.environ.get("OPENROUTER_API_BASE","https://openrouter.ai/api/v1")
 # --------> Load environment variables <--------
 dotenv.load_dotenv("./.env.local")
 
@@ -101,11 +103,6 @@ cookie = SessionCookie(
     cookie_params=cookie_params,
 )
 backend = InMemoryBackend[UUID, SessionData]()
-
-
-
-
-
 # ------> CREATE_AGENT_SESSION <----------
 @app.post("/create_session/{name}")
 async def create_session(name: str, response: Response):
@@ -120,13 +117,13 @@ async def create_session(name: str, response: Response):
 async def websocket_endpoint(websocket: WebSocket, session_id: str):
     try:
         # connect
+        session = Session(manager,websocket,session_id=session_id)
         Sessions.append(session)
     except WebSocketDisconnect:
         manager.disconnect(session_id)
     except Exception as e:
         logger.error(f"Error creating agent session: {e}")
         manager.disconnect(session_id)
-
 
 def start():
     uvicorn.run(

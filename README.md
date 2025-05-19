@@ -22,19 +22,6 @@
         <th style="padding: 10px; background-color: #f5f5f5; border: 1px solid #ddd;">Description</th>
     </tr>
     <tr>
-        <td style="padding: 10px; border: 1px solid #ddd;">Agent505</td>
-        <td style="padding: 10px; border: 1px solid #ddd;">
-            <ul style="margin: 0; padding-left: 20px;">
-The Agent505 class initializes all components for:<ul>
-                <li>managing agents, crews and supervisors</li>
-                <li>simple integration with FastAPI</li>
-                <li>sharing context between agents</li>
-                <li>supervising agents</li>
-                <li>building autonomous agents with feedback loops</li>
-                </ul>
-            </ul>
-        </td>
-    </tr>
     <tr>
         <td style="padding: 10px; border: 1px solid #ddd;">Session Manager</td>
         <td style="padding: 10px; border: 1px solid #ddd;">initializes Message Manager, Context Registry and additional components needed.</td>
@@ -49,19 +36,6 @@ The Agent505 class initializes all components for:<ul>
             <ul style="margin: 0; padding-left: 20px;">
                 <li>Allows for context to be shared between agents</li>
                 <li>Provides a simple way to supervise agents by calling the responsible supervisor, or custom event-based user-callbacks</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td style="padding: 10px; border: 1px solid #ddd;">LiteLLM Implementation</td>
-        <td style="padding: 10px; border: 1px solid #ddd;">
-            Provides a simple way to use LiteLLM models and providers
-            <ul style="margin: 10px 0 0 20px; padding-left: 0;">
-                <li>Gemini</li>
-                <li>openRouter</li>
-                <li>ollama api (local)</li>
-                <li>openwebui</li>
-                <li>OpenAI(?)</li>
             </ul>
         </td>
     </tr>

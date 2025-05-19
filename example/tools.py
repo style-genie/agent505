@@ -160,8 +160,9 @@ def write_user_data(self, user_id, data):
         
 
 
-tools = [            
-         {
+tools = {            
+             "internet_search_tool":{
+                "schema":{
                 "type": "function",
                 "function": {
                     "name": "internet_search_tool",
@@ -177,9 +178,11 @@ tools = [
                         },
                         "required": ["page"],
                     },
+                }
                 },
+                "function": internet_search_tool
             },
-            {
+            "wiki":{  "schema":{
                 "type": "function",
                 "function": {
                     "name": "wiki",
@@ -195,9 +198,11 @@ tools = [
                         },
                         "required": ["page"],
                     },
+                }
                 },
+                "function": wiki
             },
-            {
+            "fetch_elements_from_vector_db":{  "schema":{
                 "type": "function",
                 "function": {
                     "name": "fetch_elements_from_vector_db",
@@ -213,9 +218,12 @@ tools = [
                         },
                         "required": ["query"],
                     },
+                }
                 },
+                "function": fetch_elements_from_vector_db
             },
-            {
+            "get_json_element_by_id":{
+                "schema": {
                 "type": "function",
                 "function": {
                     "name": "get_json_element_by_id",
@@ -232,49 +240,7 @@ tools = [
                         "additionalProperties": False,
                     },
                 },
-            },
-            {
-            "type": "function",
-            "function": {
-                "name": "read_user_data",
-                "description": "Reads user data from the database",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "user_id": {"type": "string", "description": "The ID of the user"}
-                    },
-                    "required": ["user_id"]
-                }
+                },
+                "function": get_json_element_by_id
             }
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "write_user_data",
-                "description": "Writes or updates user data",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "user_id": {"type": "string", "description": "The ID of the user"},
-                        "data": {"type": "object", "description": "The data to be written"}
-                    },
-                    "required": ["user_id", "data"]
-                }
-            }
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "init_user_database",
-                "description": "init_user_database initializes  new user data in the database",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "user_id": {"type": "string", "description": "The ID of the new user"},
-                        "data": {"type": "object", "description": "The initial user data to create"}
-                    },
-                    "required": ["user_id", "data"]
-                }
-            }
-        }
-    ]
+}

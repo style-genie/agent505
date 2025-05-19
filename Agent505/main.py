@@ -2,8 +2,8 @@ import logging
 import os
 import dotenv
 from typing import Dict, List, Optional
-from Agent505.src.session import Session
-from Agent505.src.server import start, ConnectionManager
+from src.session import Session
+from src.server import ConnectionManager
 
 #   --------> LOGGER <--------
 logging.basicConfig(
@@ -18,9 +18,8 @@ class Agent505:
     def __init__(self):
         self.sessions={}
         self.websocket_manager=ConnectionManager()
-    # this function will also connect to your websocket
     async def start_session(self,websocket,session_id):
-        session = Session(self.websocket_manager,websocket,session_id=session_id)
+        session = Session(self.websocket_manager,websocket,session_id)
         self.sessions[session_id]={
             "websocket":websocket,
             "session":session,
